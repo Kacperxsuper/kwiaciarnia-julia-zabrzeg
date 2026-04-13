@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(where gh:*)",
+      "Bash(winget install:*)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/GitHub CLI\")",
+      "Bash(gh auth:*)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth status)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo create kwiaciarnia-julia-zabrzeg --public --source=. --push --remote=origin)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo edit --default-branch main)",
+      "Bash(ls -lt /c/Users/Kacpe/Downloads/hero*)",
+      "Bash(ls -lt /c/Users/Kacpe/Downloads/*.jpg)",
+      "Bash(ls -lt /c/Users/Kacpe/Downloads/foto* /c/Users/Kacpe/Downloads/hero*)",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(curl -sL -o bukiet1.jpg \"https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=800\")",
+      "Bash(curl -sL -o bukiet2.jpg \"https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=800\")",
+      "Bash(curl -sL -o bukiet3.jpg \"https://images.pexels.com/photos/1233414/pexels-photo-1233414.jpeg?auto=compress&cs=tinysrgb&w=800\")",
+      "Bash(curl -sL -o bukiet4.jpg \"https://images.pexels.com/photos/2879824/pexels-photo-2879824.jpeg?auto=compress&cs=tinysrgb&w=800\")",
+      "Bash(curl -sL -o bukiet5.jpg \"https://images.pexels.com/photos/1697912/pexels-photo-1697912.jpeg?auto=compress&cs=tinysrgb&w=800\")",
+      "Bash(curl -sL -o bukiet6.jpg \"https://images.pexels.com/photos/371285/pexels-photo-371285.jpeg?auto=compress&cs=tinysrgb&w=800\")",
+      "Bash(file *.jpg)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" api repos/Kacperxsuper/kwiaciarnia-julia-zabrzeg/pages)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Status:', d.get\\('status'\\), '| URL:', d.get\\('html_url'\\)\\)\")",
+      "Bash(xargs -I{} file {})",
+      "Bash(mv \"r1.jpg.jpg\" \"r1.jpg\")",
+      "Bash(mv \"r2.jpg.jpg\" \"r2.jpg\")",
+      "Bash(mv \"r3.jpg.jpg\" \"r3.jpg\")",
+      "Bash(mv \"r4.jpg.jpg\" \"r4.jpg\")",
+      "Bash(mv \"r5.jpg.jpg\" \"r5.jpg\")",
+      "Bash(pip install:*)",
+      "Bash(pip3 install:*)",
+      "Bash(py --version)",
+      "Bash(where python:*)",
+      "Bash(where py:*)",
+      "Bash(/c/Users/Kacpe/AppData/Local/Microsoft/WindowsApps/python.exe --version)",
+      "Bash(npm --version)",
+      "Bash(where node:*)",
+      "Bash(where npm:*)",
+      "Read(//c/Program Files/**)"
+    ]
+  }
+}
