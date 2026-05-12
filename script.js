@@ -67,3 +67,57 @@ document.querySelectorAll('.gallery-item img').forEach(img => {
     img.parentElement.addEventListener('mouseenter', () => img.style.transform = 'scale(1.06)');
     img.parentElement.addEventListener('mouseleave', () => img.style.transform = 'scale(1)');
 });
+
+// Lightbox
+(function() {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+        <button class="lightbox-close" aria-label="Zamknij">&times;</button>
+        <button class="lightbox-prev" aria-label="Poprzednie">&lsaquo;</button>
+        <button class="lightbox-next" aria-label="Następne">&rsaquo;</button>
+        <img class="lightbox-img" src="" alt="">
+        <span class="lightbox-counter"></span>
+    `;
+    document.body.appendChild(lightbox);
+
+    const lbImg = lightbox.querySelector('.lightbox-img');
+    const lbCounter = lightbox.querySelector('.lightbox-counter');
+    const images = Array.from(document.querySelectorAll('.gallery-item img'));
+    let current = 0;
+
+    function show(index) {
+        current = (index + images.length) % images.length;
+        lbImg.src = images[current].src;
+        lbImg.alt = images[current].alt;
+        lbCounter.textContent = (current + 1) + ' / ' + images.length;
+    }
+
+    function open(index) {
+        show(index);
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    images.forEach((img, i) => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => open(i));
+    });
+
+    lightbox.querySelector('.lightbox-close').addEventListener('click', close);
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', () => show(current - 1));
+    lightbox.querySelector('.lightbox-next').addEventListener('click', () => show(current + 1));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(current - 1);
+        if (e.key === 'ArrowRight') show(current + 1);
+    });
+})();
